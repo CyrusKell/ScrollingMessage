@@ -20,12 +20,14 @@ public class Frame {
     public static String font = "Comic Sans MS";
     public static int fgIndex = 7;
     public static int bgIndex = 0;
+    public static JPanel content;
     
     public static void main(String[] args) {
         JPanel main = new JPanel();
         main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
-        JPanel content = new ScrollingMessage();
+        content = new ScrollingMessage();
         JPanel menu = new Menu();
+        menu.setFocusable(false);
         main.add(content);
         main.add(menu);
         JFrame frame = new JFrame();
@@ -33,6 +35,7 @@ public class Frame {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Scrolling Message");
         frame.pack();
+        frame.setResizable(false);
         frame.setVisible(true);
     }
     
